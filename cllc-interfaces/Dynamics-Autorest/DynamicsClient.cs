@@ -356,6 +356,11 @@ namespace Gov.Lclb.Cllb.Interfaces
         public virtual IHoursofservicesdefaults Hoursofservicesdefaults { get; private set; }
 
         /// <summary>
+        /// Gets the IImportedoutstandinginvoiceses.
+        /// </summary>
+        public virtual IImportedoutstandinginvoiceses Importedoutstandinginvoiceses { get; private set; }
+
+        /// <summary>
         /// Gets the IIncidentadoxiolicencetypeset.
         /// </summary>
         public virtual IIncidentadoxiolicencetypeset Incidentadoxiolicencetypeset { get; private set; }
@@ -1029,6 +1034,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             Fundingsources = new Fundingsources(this);
             Hoursofservices = new Hoursofservices(this);
             Hoursofservicesdefaults = new Hoursofservicesdefaults(this);
+            Importedoutstandinginvoiceses = new Importedoutstandinginvoiceses(this);
             Incidentadoxiolicencetypeset = new Incidentadoxiolicencetypeset(this);
             Inspectioninspectorsset = new Inspectioninspectorsset(this);
             Inspectionformconfigurations = new Inspectionformconfigurations(this);

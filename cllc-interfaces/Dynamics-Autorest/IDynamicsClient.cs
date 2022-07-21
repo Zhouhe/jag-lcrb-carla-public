@@ -353,6 +353,11 @@ namespace Gov.Lclb.Cllb.Interfaces
         IHoursofservicesdefaults Hoursofservicesdefaults { get; }
 
         /// <summary>
+        /// Gets the IImportedoutstandinginvoiceses.
+        /// </summary>
+        IImportedoutstandinginvoiceses Importedoutstandinginvoiceses { get; }
+
+        /// <summary>
         /// Gets the IIncidentadoxiolicencetypeset.
         /// </summary>
         IIncidentadoxiolicencetypeset Incidentadoxiolicencetypeset { get; }
