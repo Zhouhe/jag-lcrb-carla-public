@@ -21,6 +21,7 @@ import { CRS_RENEWAL_LICENCE_TYPE_NAME, LIQUOR_RENEWAL_LICENCE_TYPE_NAME } from 
 import { faExchangeAlt, faPencilAlt, faPlus, faShoppingCart, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { UserDataService } from "@services/user-data.service";
 import { differenceInDays, startOfDay, startOfToday } from "date-fns";
+import { element } from "protractor";
 
 
 
@@ -159,6 +160,13 @@ export class ApplicationsAndLicencesComponent extends FormBase implements OnInit
             app => ["Approved", "Renewal Due", "Payment Required", "Active"].indexOf(app.applicationStatus) === -1)
           .forEach((application: ApplicationSummary) => {
             if (application.applicationTypeName != "Outstanding Prior Balance Invoice - LIQ") {
+              if (application.applicationTypeName == "Manufacturer" && application.applicationStatus == "Under Review" && application.endorsements?.length>0) {
+                application.endorsements.forEach((element, index) => {
+                  if (element.indexOf("Tied House Exemption Removal") >= 0) {
+                    delete application.endorsements[index];
+                  }
+                });
+              }
               this.inProgressApplications.push(application);
             }
           });
